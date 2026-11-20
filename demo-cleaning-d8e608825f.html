@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta name="robots" content="noindex,nofollow,noarchive"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sparkle Home Cleaning (Sample Template)</title>
+<style>
+:root{--g:#0f766e;--g2:#14b8a6;--ink:#0f172a;--mut:#475569;--bg:#f0fdfa}
+*{box-sizing:border-box;margin:0}body{font-family:system-ui,Segoe UI,Arial,sans-serif;color:var(--ink);line-height:1.5}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e2e8f0;z-index:9}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+.logo{font-weight:800;color:var(--g);font-size:20px}@media(max-width:800px){.logo{font-size:16px}header .btn{padding:9px 14px;font-size:14px;white-space:nowrap}}
+nav a{margin-left:20px;color:var(--ink);text-decoration:none;font-size:15px}
+.btn{display:inline-block;background:var(--g);color:#fff;padding:13px 24px;border-radius:999px;text-decoration:none;font-weight:700;border:0;font-size:16px;cursor:pointer}
+.hero{background:linear-gradient(135deg,#ccfbf1,#f0fdfa);padding:72px 0}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+h1{font-size:46px;line-height:1.1;margin-bottom:16px}.hero p{color:var(--mut);font-size:18px;margin-bottom:24px}
+.ph{background:linear-gradient(135deg,var(--g2),#5eead4);border-radius:20px;min-height:300px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;text-align:center;padding:20px}
+.badges{display:flex;gap:14px;margin-top:22px;font-size:14px;color:var(--mut);flex-wrap:wrap}
+section{padding:60px 0}h2{font-size:32px;margin-bottom:8px}.sub{color:var(--mut);margin-bottom:30px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:22px}.card h3{margin:8px 0 6px}.card p{color:var(--mut);font-size:15px}
+.ic{width:44px;height:44px;border-radius:12px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:22px}
+.alt{background:var(--bg)}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.n{width:40px;height:40px;border-radius:50%;background:var(--g);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;margin-bottom:10px}
+.rev{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.rev .card p{font-style:italic;color:var(--ink)}.rev small{color:var(--mut)}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+input,select,textarea{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:10px;margin-bottom:12px;font:inherit}
+footer{background:var(--ink);color:#cbd5e1;padding:30px 0;font-size:14px}
+.call{display:none}
+@media(max-width:800px){.hero .wrap,.form{grid-template-columns:1fr}h1{font-size:32px}.grid,.steps,.rev{grid-template-columns:1fr}nav{display:none}.hero{padding:40px 0}section{padding:40px 0}
+.call{display:block;position:fixed;bottom:0;left:0;right:0;background:var(--g);color:#fff;text-align:center;padding:14px;font-weight:700;text-decoration:none;z-index:10}body{padding-bottom:50px}}
+</style></head><body>
+<header><div class="wrap"><div class="logo">Sparkle Home Cleaning</div><nav><a href="#services">Services</a><a href="#how">How it works</a><a href="#reviews">Reviews</a><a href="#quote">Free quote</a></nav><a class="btn" href="#quote">Get a quote</a></div></header>
+<div class="hero"><div class="wrap"><div><h1>A spotless home, without the stress.</h1><p>Reliable, friendly cleaning for homes and small offices in [Your City]. Tell us what you need and get a free quote.</p><a class="btn" href="#quote">Request a free quote</a>
+<div class="badges"><span>✔ Locally owned</span><span>✔ Insured &amp; background-checked*</span><span>✔ Supplies included</span></div></div><div class="ph">[ Photo: bright, clean living room ]</div></div></div>
+<section id="services"><div class="wrap"><h2>Our services</h2><p class="sub">Pick one or mix them. We tailor every visit.</p><div class="grid">
+<div class="card"><div class="ic" style="font-weight:800;color:#0f766e">H</div><h3>Regular cleaning</h3><p>Weekly, bi-weekly or monthly upkeep for kitchens, baths and floors.</p></div>
+<div class="card"><div class="ic" style="font-weight:800;color:#0f766e">D</div><h3>Deep cleaning</h3><p>Top-to-bottom reset: baseboards, appliances, grout and more.</p></div>
+<div class="card"><div class="ic" style="font-weight:800;color:#0f766e">M</div><h3>Move-in / move-out</h3><p>Leave it spotless or start fresh in your new place.</p></div>
+<div class="card"><div class="ic" style="font-weight:800;color:#0f766e">P</div><h3>Post-construction</h3><p>Dust and debris cleanup after remodels and repairs.</p></div></div></div></section>
+<section class="alt" id="how"><div class="wrap"><h2>How it works</h2><p class="sub">Simple from first message to finished clean.</p><div class="steps">
+<div><div class="n">1</div><h3>Tell us about your space</h3><p>Send the form or a quick text with size and what you need.</p></div>
+<div><div class="n">2</div><h3>Get your quote</h3><p>A clear price, no surprises. Pricing from $[__] depending on size.</p></div>
+<div><div class="n">3</div><h3>Enjoy a clean home</h3><p>We show up on time and bring everything needed.</p></div></div></div></section>
+<section id="reviews"><div class="wrap"><h2>What neighbors say</h2><p class="sub">Sample text only. Replace with real reviews (with permission).</p><div class="rev">
+<div class="card"><p>"Sample review: Friendly, on time and the kitchen has never looked better."</p><small>★★★★★ Sample Customer A</small></div>
+<div class="card"><p>"Sample review: Easy to book, fair price, great attention to detail."</p><small>★★★★★ Sample Customer B</small></div>
+<div class="card"><p>"Sample review: Our move-out clean saved us so much time."</p><small>★★★★★ Sample Customer C</small></div></div></div></section>
+<section class="alt" id="quote"><div class="wrap form"><div><h2>Get a free quote</h2><p class="sub">Reply within one business day.<br><br>Serving [Your City] and nearby<br>Phone: (555) 010-0000<br>Hours: Mon–Fri 9am–5pm</p><div class="ph" style="min-height:140px">[ Photo: cleaning team ]</div></div>
+<form onsubmit="event.preventDefault();alert('Sample form: not connected')"><input placeholder="Your name"><input placeholder="Phone or email"><select><option>Regular cleaning</option><option>Deep cleaning</option><option>Move-in / move-out</option><option>Post-construction</option></select><textarea rows="4" placeholder="Home size, notes"></textarea><button class="btn" type="submit">Send request</button></form></div></section>
+<footer><div class="wrap">© Sparkle Home Cleaning. Sample template with placeholder content. *Edit claims to match the real business.</div></footer>
+<a class="call" href="tel:5550100000">Call or text for a quote</a>
+</body></html>
