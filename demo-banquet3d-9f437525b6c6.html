@@ -221,7 +221,7 @@ function frame(t){if(!vis)return;t*=.001;
  var cp=Math.cos(ph),sp=Math.sin(ph),ct=Math.cos(th),st=Math.sin(th);
  var m=[ct,sp*st,-cp*st,0, 0,cp,sp,0, st,-sp*ct,cp*ct,0, 0,0,0,1];
  for(var i=0;i<16;i++)if(i%4!=3)m[i]*=k;
- m[12]=mob?0:.52;m[13]=(mob?.5:.02)+bob;m[14]=0;m[15]=1;
+ m[12]=mob?0:.52;m[13]=(mob?1.1:.02)+bob;m[14]=0;m[15]=1;
  var sx=H/W>1?1:H/W,sy=H/W>1?W/H:1;
  g.clearColor(0,0,0,0);g.clear(g.COLOR_BUFFER_BIT|g.DEPTH_BUFFER_BIT);
  g.useProgram(pg);g.uniform2f(su2,sx,sy);g.uniformMatrix4fv(mu,false,new Float32Array(m));
