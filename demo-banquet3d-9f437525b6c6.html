@@ -164,7 +164,7 @@ function sh(t,s){var h=g.createShader(t);g.shaderSource(h,s);g.compileShader(h);
 
 var pg=g.createProgram();
 g.attachShader(pg,sh(g.VERTEX_SHADER,'attribute vec3 a;attribute vec3 n;attribute vec3 k;uniform mat4 m;uniform vec2 s;varying vec3 v;varying vec3 f;void main(){vec4 q=m*vec4(a,1.);v=normalize((m*vec4(n,0.)).xyz);f=k;gl_Position=vec4(q.x*s.x,q.y*s.y,q.z*.1,q.z*.5+1.);}'));
-g.attachShader(pg,sh(g.FRAGMENT_SHADER,'precision mediump float;varying vec3 v;varying vec3 f;void main(){vec3 N=normalize(v);vec3 L=normalize(vec3(.45,.75,.6));vec3 L2=normalize(vec3(-.55,-.15,.5));float d=max(dot(N,L),0.);float d2=max(dot(N,L2),0.)*.4;float sp=pow(max(dot(reflect(-L,N),vec3(0.,0.,1.)),0.),28.);float rim=pow(1.-abs(N.z),3.);vec3 col=f*(.3+.7*d)+f*d2+vec3(1.)*sp*.9+vec3(1.,.6,.6)*rim*.45;gl_FragColor=vec4(col,1.);}'));
+g.attachShader(pg,sh(g.FRAGMENT_SHADER,'precision mediump float;varying vec3 v;varying vec3 f;void main(){vec3 N=normalize(v);vec3 L=normalize(vec3(.45,.75,.6));vec3 L2=normalize(vec3(-.55,-.15,.5));float d=max(dot(N,L),0.);float d2=max(dot(N,L2),0.)*.4;float sp=pow(max(dot(reflect(-L,N),vec3(0.,0.,1.)),0.),28.);float rim=pow(1.-abs(N.z),3.);vec3 col=f*(.3+.7*d)+f*d2+vec3(1.,.92,.92)*sp*.55+vec3(1.,.6,.6)*rim*.4;gl_FragColor=vec4(col,1.);}'));
 g.linkProgram(pg);
 
 var VP=[],VN=[],VK=[];
@@ -182,7 +182,7 @@ var rings=[];for(var i=0;i<U;i++)rings.push(ringOf(prof,i));
 for(i=0;i<U;i++){var A=rings[i],B=rings[(i+1)%U];
  for(var j=0;j<prof.length-1;j++){
   var v=.9+rnd()*.35,col=[.9*v,.04*v,.08*v],a1=A[j],a2=A[j+1],b1=B[j],b2=B[j+1];
-  if(a1[0]===0){face(a1,b1,b2,col)}else if(a2[0]===0){face(a2,b2,a1,col)}else{face(a1,b1,a2,col);face(a2,b1,b2,col)}
+  if(a1[0]===0){face(a2,a1,b2,col)}else if(a2[0]===0){face(a1,b1,a2,col)}else{face(a1,b1,a2,col);face(a2,b1,b2,col)}
  }}
 
 // thin faceted halo ring around the gem
@@ -194,8 +194,9 @@ for(i=0;i<RU;i++)for(j=0;j<RV;j++){
  face(rp(i,j),rp(i+1,j),rp(i,j+1),c2);face(rp(i,j+1),rp(i+1,j),rp(i+1,j+1),c2);
 }
 
-function attr(p,n,d,sz){var b=g.createBuffer();g.bindBuffer(g.ARRAY_BUFFER,b);g.bufferData(g.ARRAY_BUFFER,new Float32Array(d),g.STATIC_DRAW);var l=g.getAttribLocation(p,n);g.enableVertexAttribArray(l);g.vertexAttribPointer(l,sz,g.FLOAT,false,0,0)}
-attr(pg,'a',VP,3);attr(pg,'n',VN,3);attr(pg,'k',VK,3);
+function mbuf(d){var b=g.createBuffer();g.bindBuffer(g.ARRAY_BUFFER,b);g.bufferData(g.ARRAY_BUFFER,new Float32Array(d),g.STATIC_DRAW);return b}
+var bA=mbuf(VP),bN=mbuf(VN),bK=mbuf(VK);
+function bindA(p,n,b,sz){var l=g.getAttribLocation(p,n);g.bindBuffer(g.ARRAY_BUFFER,b);g.enableVertexAttribArray(l);g.vertexAttribPointer(l,sz,g.FLOAT,false,0,0)}
 var triCount=VP.length/3;
 
 var pp=g.createProgram();
@@ -224,6 +225,7 @@ function frame(t){if(!vis)return;t*=.001;
  var sx=H/W>1?1:H/W,sy=H/W>1?W/H:1;
  g.clearColor(0,0,0,0);g.clear(g.COLOR_BUFFER_BIT|g.DEPTH_BUFFER_BIT);
  g.useProgram(pg);g.uniform2f(su2,sx,sy);g.uniformMatrix4fv(mu,false,new Float32Array(m));
+ bindA(pg,'a',bA,3);bindA(pg,'n',bN,3);bindA(pg,'k',bK,3);
  g.drawArrays(g.TRIANGLES,0,triCount);
  g.useProgram(pp);g.uniform2f(ps,sx,sy);g.uniformMatrix4fv(pm,false,new Float32Array(m));g.uniform1f(pt,t);
  g.enable(g.BLEND);g.blendFunc(g.SRC_ALPHA,g.ONE_MINUS_SRC_ALPHA);g.depthMask(false);
